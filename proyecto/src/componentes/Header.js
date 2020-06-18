@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 function Header(){
     return(
-        <h1>Hola mundo</h1>
+        <Fragment>
+            <h1>Formulario</h1>
+        </Fragment>
     )
 }
 
