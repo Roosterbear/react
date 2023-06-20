@@ -1,7 +1,12 @@
-import '.'
+import './assets/style.css';
+import Initial from './components/initial';
+
+
 const App = ()=> {
   return (
-    <div>Hello</div>
+    <div className="container">
+      <Initial/>
+    </div>
   );
 }
 
