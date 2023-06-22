@@ -1,6 +1,6 @@
 *{
-  padding: 0;
-  margin:0;
+  padding:0;
+  margin: 0;
   box-sizing: content-box;
 }
 
@@ -19,9 +19,12 @@ div{
 }
 
 h1{
-  background-color: rgb(222, 145, 13);
+  background-color: rgb(28, 182, 82);
   display: flex;
   color: white;
   justify-content: center;
 }
 
+.gris{
+  color: #333;
+}
