@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.results{
+  padding-top: 36px;
+}
+
 .searchForm-wrapper{
   display: flex;
   justify-content: center;
