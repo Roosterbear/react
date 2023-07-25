@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 // When we use export without default, we must use KEYS! to create a named import.
 import { Title } from './components/Title';
 import { SearchForm } from './components/SearchForm';
-import { Movie } from './components/Movie';
+import { MoviesList } from './components/MoviesList';
 // ------------------------------------------------------------------------------
 import './App.css';
 import 'bulma/css/bulma.css';
@@ -13,20 +13,6 @@ class App extends Component {
 
   _handleResults = (results)=>{
     this.setState({results})
-  }
-
-  _renderResults(){
-    const {results} = this.state
-    return results.map(movie=>{
-      return (
-        <Movie 
-            key={movie.imdbID}
-            title={movie.Title}
-            year={movie.Year}
-            poster={movie.Poster}
-        />
-      )
-    })
   }
 
   render(){
@@ -39,7 +25,8 @@ class App extends Component {
       <div className="results">
         {this.state.results.length === 0
           ? <p>No results</p>
-          : this._renderResults()}
+          : <MoviesList movies={this.state.results} /> 
+          }
       </div>
     </div>
     );
