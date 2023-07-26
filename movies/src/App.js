@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 // When we use export without default, we must use KEYS! to create a named import.
 
@@ -11,11 +12,14 @@ import 'bulma/css/bulma.css';
 class App extends Component {
   
   render(){
+    
+    // IMPERATIVE WAY
     const url = new URL(document.location);
     const Page = url.searchParams.has('id')
     ? <Detail id={url.searchParams.get('id')}/>
     : <Home/>
 
+    
 
     return (
       <div className="App">
