@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="#">
+  <title>Adding Bootstrap</title>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"
+    ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js">
+    </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    
+    class App extends React.Component{
+      render(){
+        return <h1>Hello World</h1>
+      }
+    }
+
+    const mount = document.querySelector('#app')
+    ReactDOM.render(<App/>, mount)
+  </script>
+</body>
+</html>
