@@ -1,10 +1,10 @@
-# ADDING COMPONENTS
+# TIMELINE
 
-## Here we continue from HELLO-WORLD
+## Here we continue from ADDING-COMPONENTS
 
 __Runs on Live Server or directly from index.html in the browser__ <br/>
 
-### Adding components by classes
+### Adding MORE components by classes
 
 
 Now we can create __components__. Let's make a class: <br/>
