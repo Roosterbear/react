@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="#">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="Clock.css">
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"
+    ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js">
+    </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    
+    class Clock extends React.Component{
+      constructor(props){
+        super(props);
+        this.state = this.getTime();
+      }
+
+      componentDidMount(){
+        this.setTimer();
+      }
+
+      setTimer(){
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(this.updateClock.bind(this),1000);
+      }
+
+      updateClock(){
+        this.setState(this.getTime, this.setTimer);
+      }
+
+      getTime(){
+        const currentTime = new Date();
+        // We are returning an OBJECT here, must use keys
+        return{
+          hours: currentTime.getHours(),
+          minutes: currentTime.getMinutes(),
+          seconds: currentTime.getSeconds(),
+          ampm: currentTime.getHours() >= 12 ? 'pm':'am'
+        }
+      }
+
+      render(){
+        const {hours, minutes, seconds, ampm} = this.state;
+        return (
+          <div className="clock">
+            {hours == 0?12:hours>12?hours-12:hours}:
+            {minutes > 9?minutes:`0${minutes}`}:
+            {seconds > 9?seconds:`0${seconds}`} {ampm}
+          </div>  
+        );
+      }
+    }
+
+    const mount = document.querySelector('#app')
+    ReactDOM.render(<Clock/>, mount)
+  </script>
+</body>
+</html>
