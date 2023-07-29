@@ -6,7 +6,6 @@ __Runs on Live Server or directly from index.html in the browser__ <br/>
 
 ### Adding components by classes
 
-
 Now we can create __components__. Let's make a class: <br/>
 
 ```html
