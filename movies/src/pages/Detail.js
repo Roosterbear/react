@@ -5,12 +5,7 @@ const API_KEY = '8bdf0a7a';
 
 export class Detail extends Component{
   static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.object,
-      isExact: PropTypes.bool,
-      path: PropTypes.string,
-      url: PropTypes.string
-    })
+    id: PropTypes.string
   }
 
   state = {
@@ -26,21 +21,32 @@ export class Detail extends Component{
       })
   }
 
+  componentDidMount(){
+    const {id} = this.props;
+    this._fetchMovie({id});
+  }
+
   _goBack(){
     window.history.back();
   }
 
-  componentDidMount(){
-    console.log(this.props)
-    const { id } = this.props.match.params
-    this._fetchMovie({ id })
-  }
+  
 
   render(){
-    const {Title} = this.state.movie
+    const {Title, Poster, Actors, Metascore, Plot} = this.state.movie
     return(
       <div>
         <h1>{Title}</h1>
+        <figure className="image">
+           <img
+             src={Poster}
+             alt='' />
+         </figure>
+         <h3>{Actors}</h3>
+         <span>{Metascore}</span>
+         <br/>
+         <cite>{Plot}</cite>
+         <br/>
         <button className="button is-warning" onClick={this._goBack}>
               Go Back
         </button>

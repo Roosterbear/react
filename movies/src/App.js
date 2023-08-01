@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import { Switch, Route } from 'react-router-dom';
+// ************************************
+// Switch is not used anymore in v6
+// instead we use Routes
+// ************************************
+import { Routes, Route } from 'react-router-dom';
 
 // When we use export without default, we must use KEYS! to create a named import.
 
@@ -14,18 +18,18 @@ class App extends Component {
   render(){
     
     // IMPERATIVE WAY
+    
     const url = new URL(document.location);
     const Page = url.searchParams.has('id')
     ? <Detail id={url.searchParams.get('id')}/>
     : <Home/>
 
-    
-
-    return (
+    return(
       <div className="App">
         {Page}
       </div>
-    );
+    )
+
   }
 }
 export default App;
