@@ -46,6 +46,7 @@ export class Detail extends Component{
          <span>{Metascore}</span>
          <br/>
          <cite>{Plot}</cite>
+         {Metascore==null?<h2><strong>404 </strong>Page Not Found</h2>:''}
          <br/>
         <button className="button is-warning" onClick={this._goBack}>
               Go Back
