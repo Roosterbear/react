@@ -8,12 +8,27 @@ const Initial = ()=>{
   // In the state, we need 2 values: the state and the set
   // Look that we need a INITIAL state between parenthesis (false)
   const [showNext, setShowNext] = useState(false);
+  const [showText, setShowText] = useState(false);
 
   const handleChange = ()=>{
-    if(textInput.current.value.length >= 5) setShowNext(true)
-    else setShowNext(false);
+    if(textInput.current.value.length >= 5){
+       setShowNext(true);
+      }
+      else{
+        setShowNext(false);
+        setShowText(false);
+      } 
   }
 
+  // TODO: always show current text on click
+  
+  const handleClick = () =>{
+    setShowText(true);
+  }
+
+  const getShowText = () =>{
+    return textInput.current.value;
+  }
 
   // Now create a validation to launch an error
   // Print the text in a div with other text on button click
@@ -29,10 +44,20 @@ const Initial = ()=>{
         />
         {
           showNext &&
-          <button className="btn">
+          <button 
+            className="btn"
+            onClick={handleClick}
+            name="next"
+            >
             Next
           </button>
         }
+        
+        {
+          showText &&
+          <small>{getShowText()} </small>
+        }
+        
     </div>
   )
 }
