@@ -13,6 +13,7 @@ const Initial = ()=>{
   const handleChange = ()=>{
     if(textInput.current.value.length >= 5){
        setShowNext(true);
+       setShowText(false);
       }
       else{
         setShowNext(false);
@@ -20,7 +21,6 @@ const Initial = ()=>{
       } 
   }
 
-  // TODO: always show current text on click
   
   const handleClick = () =>{
     setShowText(true);
@@ -30,11 +30,9 @@ const Initial = ()=>{
     return textInput.current.value;
   }
 
-  // Now create a validation to launch an error
-  // Print the text in a div with other text on button click
   return(
     <div>
-      <h1>Ask a question</h1>
+      <h1>Write a text, please</h1>
       <input
         ref={textInput}
         onChange={handleChange}
